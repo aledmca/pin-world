@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import FlatDetails from "./components/FlatDetails";
 import Flats from "./components/Flats";
 
 const StyledApp = styled.div`
@@ -9,9 +11,19 @@ min-height: 100vh;
 `
 
 function App() {
+const [flat, setFlat] = useState()
+
+  const handleFlatClick = (flat) => {
+    setFlat(flat);
+  }
+
   return (
+  
     <StyledApp>
-      <Flats />
+      { flat ? 
+        <FlatDetails flat={flat}/> :
+        <Flats onClick={ handleFlatClick }/>
+      }
     </StyledApp>
   );
 }
