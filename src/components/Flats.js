@@ -7,6 +7,11 @@ import Loading from "./Loading";
 const Header = styled.h1`
 margin-top: 0;
 `
+const FlatsList = styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+`
 
 export default function Flats() {
   const [flats, setFlats] = useState([]);
@@ -32,9 +37,11 @@ export default function Flats() {
   return (
     <div>
       <Header>Flats</Header>
-      {flats.map(flat => (
-        <Flat key={flat.id} flat={flat} />
-      ))}
+        <FlatsList>
+          {flats.map(flat => (
+            <Flat key={flat.id} flat={flat} />
+          ))}
+        </FlatsList>
     </div>
   )
 }
