@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import { Button, Header, StyledHeader } from "./_styled";
+import { CurrentFlatContext } from "../context/CurrentFlatContext";
+import { Button, Header } from "./_styled";
 
 const Root = styled.div`
   margin: auto;
@@ -8,13 +10,13 @@ const Price = styled.div`
   font-size: 1.5em;
 `
 
-export default function FlatDetails({flat, onBackClick}) {
+export default function FlatDetails({ flat }) {
   const {name, price, priceCurrency} = flat;
    
+  const { setFlat } = useContext(CurrentFlatContext); 
+
   const handleBackClick = () => {
-    if (onBackClick) {
-      onBackClick();
-    }
+    setFlat(null)
   }
   return (
     <Root>

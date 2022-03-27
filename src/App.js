@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import FlatDetails from "./components/FlatDetails";
-import Flats from "./components/Flats";
+import { CurrentFlatContext } from "./context/CurrentFlatContext";
+import ProductPage from "./pages/FlatsPage";
 
 const StyledApp = styled.div`
 padding: 20px;
@@ -13,17 +13,18 @@ min-height: 100vh;
 function App() {
 const [flat, setFlat] = useState(null)
 
-  const handleFlatClick = (flat) => {
-    setFlat(flat);
+  const context = {
+    flat, 
+    setFlat
   }
 
   return (
     <StyledApp>
-      <div></div>
-      { flat ? 
-        <FlatDetails flat={flat} onBackClick={() => setFlat(null)}/> :
-        <Flats onClick={ handleFlatClick }/>
-      }
+      <CurrentFlatContext.Provider value={context}>
+        { 
+          <ProductPage />
+        }
+      </CurrentFlatContext.Provider>
     </StyledApp>
   );
 }
