@@ -11,17 +11,17 @@ min-height: 100vh;
 `
 
 function App() {
-const [flat, setFlat] = useState()
+const [flat, setFlat] = useState(null)
 
   const handleFlatClick = (flat) => {
     setFlat(flat);
   }
 
   return (
-  
     <StyledApp>
+      <div></div>
       { flat ? 
-        <FlatDetails flat={flat}/> :
+        <FlatDetails flat={flat} onBackClick={() => setFlat(null)}/> :
         <Flats onClick={ handleFlatClick }/>
       }
     </StyledApp>

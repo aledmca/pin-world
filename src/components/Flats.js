@@ -3,34 +3,14 @@ import styled from "styled-components";
 import { getAllFlats } from "../api/flatsApi";
 import Flat from "./Flat";
 import Loading from "./Loading";
-import logo from "../Logo.svg/logo.png"
+import logo from "../Logo.svg/logo.png";
+import { Header, StyledLogo, StyledHeader  } from "./_styled";
 
-const Header = styled.h1`
-margin-top: 0;
-color: #516346;
-`
+
 const FlatsList = styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
-`
-const StyledLogo = styled.img`
-margin-top: 0;
-margin-bottom: 20px;
-max-height: 50px;
-max-width: 50px;
-cursor: pointer;
-transition: max-width max-height .5s;
-
-&:active {
-  max-width: 60px;
-  max-height: 60px;
-}
-`
-const StyledHeader = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
 `
 
 export default function Flats({ onClick }) {
@@ -66,6 +46,7 @@ export default function Flats({ onClick }) {
       <StyledLogo src={logo} />
       <Header>Appartments</Header>
       </StyledHeader>
+      {/* <Header>Special holidays for you!</Header> */}
         <FlatsList>
           {flats.map(flat => (
             <Flat 
