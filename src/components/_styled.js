@@ -39,3 +39,27 @@ cursor: pointer;
   transform: translateY(1px);
 }
 `
+export const StyledBtn = styled.div`
+padding: 4px 6px;
+margin-top: 4px;
+background-color: #bdf4b7;
+border: solid 1px #81a97d;
+min-width: 30px;
+border-radius: 4px;
+transition: background-color .2s;
+cursor: pointer;
+
+&:hover {
+  background-color: yellowgreen;
+}
+
+&:active {
+  background-color: #81a97d;
+  transition: none;
+}
+
+&[disabled] {
+  background-color: #ddd;
+  border-color: #aaa;
+}
+`

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { CurrentFlatContext } from "../context/CurrentFlatContext";
+import { CurrentFlatContext, useCurrentFlat } from "../context/CurrentFlatContext";
 import { Button, Header } from "./_styled";
 
 const Root = styled.div`
@@ -13,7 +13,7 @@ const Price = styled.div`
 export default function FlatDetails({ flat }) {
   const {name, price, priceCurrency} = flat;
    
-  const { setFlat } = useContext(CurrentFlatContext); 
+  const { setFlat } = useCurrentFlat(); 
 
   const handleBackClick = () => {
     setFlat(null)
