@@ -25,5 +25,5 @@ export const useCurrentFlat = () => {
   if(!context) {
     throw new Error('useCurrentFlat must be used within a CurrentFlatProvider!')
   }
-  return context; 
+  return context;  
 }

@@ -7,7 +7,7 @@ import { getAllFlats } from "../api/flatsApi";
 import {  useCurrentFlat } from "../context/CurrentFlatContext";
 
 
-export default function ProductPage() {
+export default function FlatsPage() {
   const [flats, setFlats] = useState([]);
   const [loading, setLoading] = useState(false);
 

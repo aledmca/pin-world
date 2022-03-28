@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { StyledBtn } from "./_styled";
-import {  useCurrentFlat } from "../context/CurrentFlatContext";
-import { useContext } from "react";
-import { BookContext } from "../context/BookContext";
+import { useCurrentFlat } from "../context/CurrentFlatContext";
+import { useBook } from "../context/BookContext";
 
 const Container = styled.div`
 display: flex;
@@ -40,7 +39,7 @@ object-fit: contain;
 
  export default function Flat({ flat }) {
   const { setFlat } = useCurrentFlat();
-  const {makeReservation} =useContext(BookContext);
+  const {makeReservation} = useBook();
 
   const handleFlatClick = () => { 
     setFlat(flat);

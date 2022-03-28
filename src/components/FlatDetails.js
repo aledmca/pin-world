@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { CurrentFlatContext, useCurrentFlat } from "../context/CurrentFlatContext";
+import { useCurrentFlat } from "../context/CurrentFlatContext";
 import { Button, Header } from "./_styled";
 
 const Root = styled.div`

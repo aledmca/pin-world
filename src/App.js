@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { CurrentFlatProvider } from "./context/CurrentFlatContext";
-import ProductPage from "./pages/FlatsPage";
-import { BookContext } from "./context/BookContext";
+import { BookProvider } from "./context/BookContext";
 import HomePage from "./pages/HomePage";
+import BookStatus from "./components/BookStatus";
+import FlatsPage from "./pages/FlatsPage";
 const StyledApp = styled.div`
 display: flex;
 flex-direction: column;
@@ -14,28 +14,15 @@ min-height: 100vh;
 `
 
 function App() {
-const [book, setBook] = useState([]);
-
-  const bookContext = {
-    book,
-    makeReservation : (flat) => {
-      const newReservation = [...book];
-
-      newReservation.push(book);
-      setBook(newReservation);
-    }
-  }
 
   return (
   
     <StyledApp>
-      <div>
-        {book.length}
-      </div>
       <CurrentFlatProvider>
-        <BookContext.Provider value={bookContext}>
-          <ProductPage />
-        </BookContext.Provider>
+        <BookProvider>
+          <BookStatus />
+          <FlatsPage />
+        </BookProvider>
         </CurrentFlatProvider> 
       <HomePage></HomePage>
     </StyledApp>
