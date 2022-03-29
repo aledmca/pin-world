@@ -1,24 +1,46 @@
 import styled from "styled-components";
 
-export const Header = styled.h1`
-margin-top: 0;
-color: #516346;
+export const StyledNavbar = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 5px;
+padding-left: 30px;
+padding-right: 30px;
+margin-bottom: 20px;
+border-radius: 10px;
+background-color: #5A6351;
+`
+export const StyledBrand = styled.h1`
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: #78AB46;
+text-decoration: none;
+`
+export const StyledNavItems = styled.h2`
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
+export const StyledNavItem = styled.span`
+color: #78AB46;
+text-decoration: none;
+
+&:hover {
+  text-decoration: underline;
+}
 `
 export const StyledLogo = styled.img`
 margin-top: 0;
-margin-bottom: 20px;
 max-height: 50px;
 max-width: 50px;
 cursor: pointer;
+margin-right: 10px;
 
 &:active {
   transform: translateY(1px);
 }
-`
-export const StyledHeader = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
 `
 
 export const Button = styled.button`

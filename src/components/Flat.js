@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { StyledBtn } from "./_styled";
-import { useCurrentFlat } from "../context/CurrentFlatContext";
-import { useBook } from "../context/BookContext";
 
 const Container = styled.div`
 display: flex;
@@ -37,27 +35,19 @@ max-height: 140px;
 object-fit: contain;
 `
 
- export default function Flat({ flat }) {
-  const { setFlat } = useCurrentFlat();
-  const {makeReservation} = useBook();
-
-  const handleFlatClick = () => { 
-    setFlat(flat);
-  }
+export default function Flat({ flat }) {
 
   const handleBookNow = (e) => {
     console.log('BOOKED');
     e.stopPropagation();
-
-    makeReservation(flat);
   }
 
   return (
-    <Container onClick={handleFlatClick}>
+    <Container>
       {/* <Name>{flat.name}</Name> */}
-      <Img src={flat.imageUrl} alt={flat.name}/>
+      <Img src={flat.imageUrl} alt={flat.name} />
       <Price>{flat.price}{flat.priceCurrency}/night</Price>
       <StyledBtn onClick={handleBookNow}>Book Now</StyledBtn>
     </Container>
   )
- }
+}

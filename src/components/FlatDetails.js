@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useCurrentFlat } from "../context/CurrentFlatContext";
 import { Button, Header } from "./_styled";
 
 const Root = styled.div`
@@ -10,21 +9,15 @@ const Price = styled.div`
 `
 
 export default function FlatDetails({ flat }) {
-  const {name, price, priceCurrency} = flat;
-   
-  const { setFlat } = useCurrentFlat(); 
+  const { name, price, priceCurrency } = flat;
 
-  const handleBackClick = () => {
-    setFlat(null)
-  }
   return (
     <Root>
-      {/* <StyledHeader> */}
-        <Button onClick={handleBackClick}>{'X'}</Button>
-        <Header>{name}</Header>
-      {/* </StyledHeader> */}
-      <Price>Only {price}{priceCurrency}/night!<br/>
-      Two others are interested in this apartment.</Price>
+      <Button>{'X'}</Button>
+      <Header>{name}</Header>
+
+      <Price>Only {price}{priceCurrency}/night!<br />
+        Two others are interested in this apartment.</Price>
     </Root>
   )
 }

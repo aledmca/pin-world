@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { CurrentFlatProvider } from "./context/CurrentFlatContext";
-import { BookProvider } from "./context/BookContext";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
-import BookStatus from "./components/BookStatus";
 import FlatsPage from "./pages/FlatsPage";
-import { Route, Routes } from "react-router-dom";
+import Search from "./components/Search";
+import { StyledNavItems, StyledNavItem, StyledNavbar, StyledBrand, StyledLogo } from "./components/_styled";
+import logo from "./assets/logo.png";
 
 
 const StyledApp = styled.div`
@@ -17,23 +18,36 @@ min-height: 100vh;
 `
 
 function App() {
+  const navigate = useNavigate();
+
+  const onFlatSearch = (value) => {
+    console.log('flat ?? ', value)
+    navigate(`flats?search=${value}`)
+  }
 
   return (
-
     <StyledApp>
-    <Routes>
-      <Route path="/" element={<HomePage />}></Route>
-    </Routes>
-      <CurrentFlatProvider>
-        <BookProvider>
-          <BookStatus />
-          {/* <Routes>
-            <Route path="flats" element={<FlatsPage />}></Route>
-          </Routes> */}
-          <FlatsPage />
-        </BookProvider>
-        </CurrentFlatProvider> 
-      <HomePage></HomePage>
+      <StyledNavbar>
+        <StyledBrand>
+          <Link to="/">
+            <StyledLogo src={logo} />
+          </Link>
+          Welcome to PinWorld
+        </StyledBrand>
+
+        <Search onSearch={onFlatSearch} />
+
+        <Link to="/flats">
+          <StyledNavItems>
+            <StyledNavItem>View all flats</StyledNavItem>
+          </StyledNavItems>
+        </Link>
+      </StyledNavbar>
+
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/flats" element={<FlatsPage />} />
+      </Routes>
     </StyledApp>
   );
 }
