@@ -1,3 +1,4 @@
+import { style } from "@mui/system";
 import React, { useState, useRef, useEffect } from "react";
 // import ReactDOM from "react-dom";
 import styled from "styled-components";
@@ -38,6 +39,10 @@ const Input = styled.input`
     color: white;
   }
 `;
+
+const SearchDiv = styled.div`
+
+`
 
 const Button = styled.button`
   line-height: 1;
