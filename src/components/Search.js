@@ -8,11 +8,11 @@ const Form = styled.form`
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #61c24f;
-  width: 30rem;
+  width: 30em;
   cursor: "auto";
-  padding: 2rem;
-  height: 2rem;
-  border-radius: 10rem;
+  padding: 2em;
+  height: 2em;
+  border-radius: 10em;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
 
@@ -21,7 +21,7 @@ const Input = styled.input`
   line-height: 1;
   background-color: transparent;
   width: 100%;
-  margin-left: "1rem";
+  margin-left: "1em";
   border: none;
   color: white;
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
